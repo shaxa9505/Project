@@ -1,0 +1,64 @@
+extends layout
+
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-4.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item: a(href="/admin/about") Обо мне
+            li.breadcrumb-item.active #{edit}   
+    .container
+        .row.justify-content-center
+            .col-lg-6
+                if (editActive)
+                    form(method="POST" action=`/admin/edit/${abouts._id}` enctype="multipart/form-data").border.p-4.shadow-lg.rounded.formWrapper
+                        .mb-3
+                            label.form-label.fs-4(for='title') Заголовок
+                            input#name.form-control.mb-2(type='text' name='titleru' value=abouts.aboutTitle["ru"] placeholder='Введите название')
+                            input#name.form-control(type='text' name='titleen' value=abouts.aboutTitle["en"] placeholder='Enter the title')
+                        .mb-3
+                            label.form-label.fs-4(for='text') Информация о себе
+                            input#name.form-control.mb-2.inText(type='text' name='textru' value=abouts.aboutMe["ru"] placeholder='Введите информацию о себе')
+                            input#name.form-control.inText(type='text' name='texten' value=abouts.aboutMe["en"] placeholder='Enter information about yourself')
+                        .mb-3
+                            label.form-label(for='filefon') Изображение для экрана
+                            .aboutFonWrapper
+                                .image
+                                    each aboutImages, i in abouts.aboutImg
+                                        img( src=`/images/about/${aboutImages.filename}` alt='')
+                                .content
+                                    .icon
+                                        i.fas.fa-cloud-upload-alt
+                                    .text
+                                        | файл пока не выбран
+                                #cancel-btn
+                                    i.fas.fa-times
+                            div.btn.btn-secondary#aboutEdit-btn Выберите изображение
+                            input#defaultEdit-btn(type='file' accept=".png, .jpg, .jpeg, .svg   " name="filefon" hidden)
+                            
+                        button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') Изменить
+                else 
+                    form(method="POST" action="/admin/newAddAbout" enctype="multipart/form-data").border.p-4.shadow-lg.rounded.wrapperForm
+                        .mb-3
+                            label.form-label.fs-4(for='title') Заголовок
+                            input#name.form-control.mb-2(type='text' name='titleru' value=titleru ? titleru : "" placeholder='Введите название')
+                            input#name.form-control(type='text' name='titleen' value=titleen ? titleen : "" placeholder='Enter the title')
+                        .mb-3
+                            label.form-label.fs-4(for='text') Информация о себе
+                            input#name.form-control.mb-2.inText(type='text' name='textru' value=textru ? textru : "" placeholder='Введите информацию о себе')
+                            input#name.form-control.inText(type='text' name='texten' value=texten ? texten : "" placeholder='Enter information about yourself')
+                        .mb-3
+                            label.form-label(for='filefon') Изображение для экрана
+                            .wrapperAboutFon
+                                .image
+                                    img(src='' alt='')
+                                .content
+                                    .icon
+                                        i.fas.fa-cloud-upload-alt
+                                    .text
+                                        | файл пока не выбран
+                                #cancel-btn
+                                    i.fas.fa-times
+                            div.btn.btn-secondary#aboutFon-btn Выберите изображение
+                            input#defaultFon-btn(type='file' accept=".png, .jpg, .jpeg, .svg" name="filefon" hidden)
+                            
+                        button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') Создать

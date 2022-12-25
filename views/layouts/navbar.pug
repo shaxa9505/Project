@@ -1,0 +1,99 @@
+header
+ if headerNavbar 
+  .header_navbar(style='position: fixed')
+    nav.navbar.navbar-expand-lg
+        .container
+            a.navbar-brand(href='/') MeliboyevDev
+            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+                    li.nav-item
+                        a.nav-link.link(href='/')
+                            i.fa-solid.fa-house
+                            | #{l.home}
+                            div.greeting
+                    li.nav-item.active
+                        a.nav-link.link(href='/about')
+                            i.fa-solid.fa-user
+                            | #{l.about}
+                            div.greeting
+                    li.nav-item
+                        a.nav-link.link(href='/portfolio')
+                            i.fa-solid.fa-tv
+                            | #{l.projects}
+                            div.greeting
+                    li.nav-item
+                        a.nav-link.link(href='/resume')
+                            i.fa-solid.fa-file
+                            | #{l.resume}
+                            div.greeting
+                    if user
+                        li.nav-item
+                            a.nav-link.link(href='/admin')
+                                i.fa-solid.fa-right-to-bracket
+                                | #{l.panel}
+                                div.greeting
+                    else 
+                        null
+                    li.nav-item
+                        .mode
+                            i.bi.bi-brightness-high-fill.sun
+                            i.bi.bi-moon.mon
+                    li.nav-item.dropdown
+                        a.nav-link.dropdown-toggle.language(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                            i.fa-solid.fa-globe
+                            | #{l.selectLanguage}
+                        ul.dropdown-menu
+                            if lang == "ru"
+                                li
+                                    a.dropdown-item(href='?lang=en') en
+                            else 
+                                li
+                                    a.dropdown-item(href='?lang=ru') ru
+    
+ else 
+  .header_navbar
+    nav.navbar.navbar-expand-lg
+        .container
+            a.navbar-brand(href='/') MeliboyevDev
+            button.navbar-toggler(type='button' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation')
+                span.navbar-toggler-icon
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.ms-auto.mb-2.mb-lg-0
+                    li.nav-item
+                        a.nav-link.link(href='/')
+                            i.fa-solid.fa-house
+                            | #{l.home}
+                            div.greeting
+                    li.nav-item.active
+                        a.nav-link.link(href='/about')
+                            i.fa-solid.fa-user
+                            | #{l.about}
+                            div.greeting
+                    li.nav-item
+                        a.nav-link.link(href='/portfolio')
+                            i.fa-solid.fa-tv
+                            | #{l.projects}
+                            div.greeting
+                    li.nav-item
+                        a.nav-link.link(href='/resume')
+                            i.fa-solid.fa-file
+                            | #{l.resume}
+                            div.greeting
+                    li.nav-item
+                        .mode
+                            i.bi.bi-brightness-high-fill.sun
+                            i.bi.bi-moon.mon
+                    li.nav-item.dropdown
+                        a.nav-link.dropdown-toggle.language(href='#' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                            i.fa-solid.fa-globe
+                            | #{l.selectLanguage}
+                        ul.dropdown-menu
+                            if lang == "ru"
+                                li
+                                    a.dropdown-item(href='?lang=en') en
+                            else 
+                                li
+                                    a.dropdown-item(href='?lang=ru') ru
+                        

@@ -1,0 +1,58 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-6.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item: a(href="/admin/projects") Портфолио
+            li.breadcrumb-item.active #{projectTitle}
+    .container
+        .row.justify-content-center
+            .col-lg-6
+                if (editProject)
+                    form(method="POST" action=`/admin/editProject/${projectId._id}` enctype="multipart/form-data").border.p-4.shadow-lg.rounded.formWrapper
+                        .mb-3
+                            label.form-label.fs-4(for='titleSite') Название сайта
+                            input#name.form-control.mb-2(type='text' name='titleSite' value=projectId.projectTitle placeholder='Название вашего веб-сайта')
+                        .mb-3
+                            label.form-label.fs-4(for='link') Ссылка на сайт
+                            input#name.form-control.mb-2.inText(type='text' name='link' value=projectId.projectLink placeholder='Ссылка вашего веб-сайта')
+                        .mb-3
+                            label.form-label(for='projectImg') Изображение сайта
+                            .aboutFonWrapper
+                                .image
+                                    img( src=`/images/projects/${projectId.projectImg.filename}` alt='')
+                                .content
+                                    .icon
+                                        i.fas.fa-cloud-upload-alt
+                                    .text
+                                        | файл пока не выбран
+                                #cancel-btn
+                                    i.fas.fa-times
+                            div.btn.btn-secondary#aboutEdit-btn Выберите изображение
+                            input#defaultEdit-btn(type='file' accept=".png, .jpg, .jpeg, .svg   " name="projectImg" hidden)
+                            
+                        button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') Изменить
+                else 
+                    form(method="POST" action="/admin/projectAdd" enctype="multipart/form-data").border.p-4.shadow-lg.rounded.wrapperForm
+                        .mb-3
+                            label.form-label.fs-4(for='titleSite') Название сайта
+                            input#name.form-control.mb-2(type='text' name='titleSite' value=titleSite ? titleSite : "" placeholder='Название вашего веб-сайта')
+                        .mb-3
+                            label.form-label.fs-4(for='text') Ссылка на сайт
+                            input#name.form-control.mb-2.inText(type='text' name='link' value=link ? link : "" placeholder='Ссылка вашего веб-сайта')
+                        .mb-3
+                            label.form-label(for='projectImg') Изображение сайта
+                            .wrapperAboutFon
+                                .image
+                                    img(src='')
+                                .content
+                                    .icon
+                                        i.fas.fa-cloud-upload-alt
+                                    .text
+                                        | файл пока не выбран
+                                #cancel-btn
+                                    i.fas.fa-times
+                            div.btn.btn-secondary#aboutFon-btn Выберите изображение
+                            input#defaultFon-btn(type='file' accept=".png, .jpg, .jpeg, .svg" name="projectImg" hidden)
+                            
+                        button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') Создать

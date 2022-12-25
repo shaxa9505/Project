@@ -1,0 +1,42 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-4.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item.active Портфолио
+    .content: .container-fluid: .card#app
+        if (projects.length === 0) 
+            p.ml-2 Нет информации о ваших проектах
+        else 
+            table.table
+                thead
+                    tr
+                        th #
+                        th Название сайта
+                        th Ссылка на сайт
+                        th Изображение
+                        th Удалить
+                        th Редактировать
+                        th Узнать больше
+                tbody
+                    each project, i in projects
+                        tr
+                            th #{i+1}
+                            if (project.projectTitle.length > 8) 
+                                td #{project.projectTitle.slice(0, 8)}...
+                            else
+                                td #{project.projectTitle}
+                            if (project.projectLink.length > 8)
+                                td #{project.projectLink.slice(0, 8)}...
+                            else
+                                td #{project.projectLink}
+                            td
+                                img.about_img(src=`/images/projects/${project.projectImg.filename}`)
+                            td
+                                a(href=`/admin/deleteProject/${project._id}`).btn.btn-danger Удалить
+                            td
+                                a(href=`/admin/editProject/${project._id}`).btn.btn-primary Редактировать
+                            td
+                                a(href=`/admin/projectInfo/${project._id}`).btn.btn-info Узнать больше
+        .col-lg-3
+            a(href="/admin/projectAdd" class="btn btn-primary mb-2 ml-2") Создать новый

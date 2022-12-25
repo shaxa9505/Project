@@ -1,0 +1,37 @@
+aside.main-sidebar.sidebar-dark-primary.elevation-4
+  a.brand-link(href="/admin")
+    img.brand-image.img-circle.elevation-3(src="/panel/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" style="opacity: .8")
+    span.brand-text.font-weight-light Администратор
+  .sidebar
+    .user-panel.mt-3.pb-3.mb-3.d-flex
+      .image: img.img-circle.elevation-2(src="/panel/dist/img/adminka.png" alt="User Image")
+      .info: a.d-block(href="#") Шохрух
+    nav.mt-2
+      ul.nav.nav-pills.nav-sidebar.flex-column(data-widget="treeview" role="menu" data-accordion="false")
+        li.nav-item.has-treeview
+          a.nav-link(style="cursor: pointer")
+            i.nav-icon.fas.fa-stream
+            p Категория
+              i.right.fas.fa-angle-left
+          ul.nav.nav-treeview
+            li.nav-item: a.nav-link(href="/admin/about")
+              p Обо мне
+
+            li.nav-item: a.nav-link(href="/admin/skills")
+              p Мои навыки 
+
+            li.nav-item: a.nav-link(href="/admin/technologys")
+              p Инструменты, которые я использую
+
+            li.nav-item: a.nav-link(href="/admin/projects")
+              p Портфолио
+
+            li.nav-item: a.nav-link(href="/admin/networks")
+              p Социальные сети
+            
+            li.nav-item: a.nav-link(href="/admin/resume")
+              p Резюме
+
+        li.nav-item: a.nav-link(href="/logout")
+          i.nav-icon.fas.fa-sign-out-alt
+          p Выйти

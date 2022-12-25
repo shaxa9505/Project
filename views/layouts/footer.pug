@@ -1,0 +1,46 @@
+if footerStyle
+    footer(style='position: absolute')
+        .container
+            .row.justify-content-between.align-items-center
+                .col-lg-3
+                    p.developed #{l.developed}
+                .col-lg-3
+                    p.copy Copyright © 2022 MeliboyevDev.uz
+                .col-lg-3
+                    ul
+                        each network, i in networks
+                            li
+                                a(href=`${network.networkLink}` target="blank") 
+                                    i(class=`${network.networkIcon}`)
+else 
+    footer
+        .container
+            .row.justify-content-between.align-items-center
+                .col-lg-3
+                    p.developed #{l.developed}
+                .col-lg-3
+                    p.copy Copyright © 2022 MeliboyevDev.uz
+                .col-lg-3
+                    ul
+                        each network, i in networks
+                            li
+                                a(href=`${network.networkLink}` target="blank") 
+                                    i(class=`${network.networkIcon}`)
+
+style#breath-734abdb5-adb3-47b0-9515-f7a927fa558b(data-anikit='').
+    @keyframes breath-734abdb5-adb3-47b0-9515-f7a927fa558b {
+    0% {
+    animation-timing-function: cubic-bezier(0.9647, 0.2413, -0.0705, 0.7911);
+    transform: scale(0.9099999999999999);
+    }
+    51% {
+    animation-timing-function: cubic-bezier(0.9226, 0.2631, -0.0308, 0.7628);
+    transform: scale(1.02994);
+    }
+    100% {
+    transform: scale(0.9099999999999999);
+    }
+    }
+script(src='/javascripts/script.js')
+script(src='https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js' integrity='sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3' crossorigin='anonymous')
+script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js' integrity='sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk' crossorigin='anonymous')

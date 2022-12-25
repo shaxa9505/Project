@@ -1,0 +1,426 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --primary-color: #020a18;
+}
+
+body{
+  font-family: 'Open Sans', sans-serif !important;
+  background-color: var(--primary-color) !important;
+  transition: 500ms;
+}
+body.dark{
+  --primary-color: white;
+}
+
+.loader{
+  width: 100%;
+  background: #020a18;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: fixed;
+  z-index: 999;
+  transition: 1s;
+}
+
+/* ============== HEADER START ============== */
+
+/* ==== .header_navbar ==== */
+
+header .header_navbar {
+  width: 100%;
+  padding-top: 10px;
+  top: 0;
+}
+
+header .header_navbar.sticky {
+  background: #7e7b7b21;
+  backdrop-filter: blur(15px) ;
+}
+
+header .header_navbar nav .navbar-brand {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24.5455px;
+  line-height: 31px;
+  transition: 500ms;
+  margin-bottom: 5px;
+}
+header .header_navbar nav .collapse .navbar-nav .mode{
+  margin-bottom: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 5px;  
+}
+header .header_navbar nav .collapse .navbar-nav .nav-item {
+  margin-left: 20px;
+}
+
+header .header_navbar nav .collapse .navbar-nav .nav-item .nav-link {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 22px;
+  transition: 1s;
+}
+header .header_navbar nav .collapse .navbar-nav .nav-item .nav-link i{
+  margin-right: 5px;
+}
+header .header_navbar nav .collapse .navbar-nav .dropdown .language{
+  font-size: 13px;
+}
+header .header_navbar nav .collapse .navbar-nav .dropdown .language i{
+  margin-right: 5px;
+  font-size: 12px;
+}
+header .header_navbar nav .collapse .navbar-nav .dropdown .dropdown-toggle::after{
+  border: 0;
+}
+header .header_navbar nav .collapse .navbar-nav .dropdown .dropdown-menu {
+  min-width: 0 !important;
+  padding: 0 !important;
+  --bs-dropdown-border-radius: 0; 
+  --bs-dropdown-border-width: 0;
+  --bs-dropdown-inner-border-radius: 0 !important; 
+  border-radius: 10px;
+  transition: 500ms;
+}
+.navbar-nav .nav-item .greeting {
+  content: "";
+  position: relative;
+  display: block;
+  height: 5px;
+  width: 0;
+  border-radius: 16px;
+  bottom: 1px;
+  left: 0;
+  z-index: -1;
+  transition: all 0.3s ease-out 0s;
+  margin-top: 5px;
+}
+header .header_navbar nav .collapse .navbar-nav .dropdown .dropdown-menu:hover {
+  border-radius: 10px !important;
+  --bs-dropdown-link-hover-bg: #fff !important;
+  border-radius: 10px;
+}
+
+/* ==== .header_about ==== */
+
+.header_about {
+  margin-top: 120px;
+}
+.header_about .header_about.home h2{
+  font-style: normal;
+  font-weight: 800;
+  font-size: 45px;
+  line-height: 130%;
+  color: #3A68B8;
+  margin: 0;
+  margin-right: 15px;
+}
+.header_about .name{
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 160%;
+  transition: 500ms;
+}
+.header_about .name .dev{
+  color: #3A68B8;
+  font-size: 22px;
+}
+.header_about .work{
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 160%;
+  margin-top: 15px;
+  transition: 500ms;
+}
+
+.header_about img{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-top: 30px;
+}
+
+.wave {
+  animation-name: wave-animation;
+  animation-duration: 2.1s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+  font-size: 44px;
+  cursor: pointer;
+}
+
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+/* ============== HEADER END ============== */
+
+
+
+/* ============== SECTION START ============== */
+
+section {
+  margin-top: 250px;
+  margin-bottom: 150px;
+}
+section .section_title {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 130%;
+  color: #3A68B8;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 30px;
+}
+section .section_text{
+  margin: 0;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 17px;
+  line-height: 160%;
+  transition: 500ms;
+}
+
+section .section_about_img{
+  width: 100%;
+  height: auto;
+}
+
+section .section_text_skills {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 37px;
+  line-height: 130%;
+  color: #3A68B8;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+section .section_text_technology {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 37px;
+  line-height: 130%;
+  color: #3A68B8;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+section .tech-icons {
+  height: 130px;
+  border-radius: 10px;
+  transition: 500ms;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section .tech-icons:hover {
+  transform: scale(1.05);
+}
+section .tech-icons .img{
+  width: 80px;
+  min-height: auto;
+}
+
+
+/* ============== SECTION END ============== */
+
+
+
+/* ============== PROJECTS START ============== */
+
+menu {
+  margin-top: 180px;
+  margin-bottom: 150px;
+}
+menu .portfolio {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 40px;
+  line-height: 130%;
+  color: #3A68B8;
+  margin: 0;
+  text-align: center;
+  margin-bottom: 30px;
+}
+menu .card-project {
+  width: 100%;
+  padding: 30px 20px;
+  box-shadow: 0 4px 5px 3px rgba(54, 97, 161, 0.459);
+  transition: all .5s ease 0s;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+menu .card-project:hover{
+  box-shadow: 0 4px 4px 5px rgba(18, 85, 228, 0.561);
+  transform: scale(1.02);
+}
+menu .card-project img{
+  width: 100%;
+  height: 150px;
+}
+menu .card-project h5{
+  line-height: 28px;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+menu .card-project .card-project-link {
+  text-decoration: none;
+  font-size: 19px;
+  transition: 500ms;
+}
+menu .card-project .card-project-link i{
+  font-size: 14px;
+  margin-left: 2px;
+}
+
+
+/* ============== PROJECTS END ============== */
+
+
+.error_img {
+  width: 100%;
+  height: 400px;
+}
+
+/* ============== FOOTER START ============== */
+
+footer {
+  width: 100%;
+  padding: 10px;
+  bottom: 0;
+  transition: 1s;
+}
+footer .developed{
+  margin: 0;
+  transition: 1s;
+}
+footer .copy{
+  margin: 0;
+  transition: 1s;
+}
+footer ul {
+  display: flex;
+  margin: 0;  
+}
+footer ul li {
+  list-style: none;
+}
+footer ul li a {
+  margin-left: 30px;
+  font-size: 18px;
+  transition: 1s;
+}
+
+/* ============== FOOTER END ============== */
+
+.user_card {
+  width: 100%;
+  background: #212121;
+  border-radius: 10px;
+  margin-top: 100px;
+  padding: 40px 0;
+  margin-bottom: 50px;
+}
+.user_card form{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.user_card form h2{
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: 0.0125em;
+  color: white;
+  margin-bottom: 30px;
+}
+.user_card form input {
+  width: 53%;
+  margin-bottom: 20px;
+  max-width: 400px;
+  background: #2e2e2e;
+  height: 56px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border: 0px solid #000;
+  border-radius: 4px;
+  background-color: #2e2e2e;
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  outline: none;
+}
+.user_card form .submit {
+  border: none;
+  border-radius: 36px;
+  background: linear-gradient(233deg, #000, #212121);
+  transition: 1s;
+  color: #fff;
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 50%;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+.user_card form .submit:hover{
+  background-image: linear-gradient(233deg, #212121, #000);
+}

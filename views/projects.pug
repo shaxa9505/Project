@@ -1,0 +1,14 @@
+extends layout 
+block content
+    menu
+        .container
+            .row
+                div.portfolio #{l.portfolio}
+                each project, i in projects
+                    .col-lg-4
+                        .card-project
+                            img(src=`/images/projects/${project.projectImg.filename}`, alt="png")
+                            h5 #{project.projectTitle}
+                            a.card-project-link(href=`${project.projectLink}` target='_blank')
+                                span #{l.site}
+                                i.fas.fa-chevron-right

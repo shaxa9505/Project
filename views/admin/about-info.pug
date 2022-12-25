@@ -1,0 +1,36 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-8.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item: a(href="/admin/about") Обо мне
+            li.breadcrumb-item.active Подробная информация
+
+    .content: .container-fluid: .card#app
+        table.table
+            thead
+                tr
+                    th #
+                    th Заголовок
+                    th Информация о себе
+                    th Изображение для экрана
+
+            tbody.about-info
+                each about, i in abouts
+                    tr
+                        th #{i+1}
+                        td 
+                            b ru: 
+                            | #{about.aboutTitle.ru} 
+                            br
+                            b en: 
+                            | #{about.aboutTitle.en}
+                        td 
+                            b ru: 
+                            | #{about.aboutMe.ru} 
+                            br
+                            b en: 
+                            | #{about.aboutMe.en}
+                        each aboutImages, i in about.aboutImg
+                            td 
+                                img.about_info_img(src=`/images/about/${aboutImages.filename}`)

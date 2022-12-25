@@ -1,0 +1,46 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-6.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item: a(href="/admin/skills") Мои навыки
+            li.breadcrumb-item.active #{skillTitle}
+    .container
+        .row.justify-content-center
+            .col-lg-5
+                if(editSkill)
+                    form(method="POST" action=`/admin/skillsEdit/${skillsId._id}` enctype="multipart/form-data").border.p-4.shadow-lg.rounded.skillsEdit
+                        .mb-3
+                            label.form-label(for='skillImg') Изображение
+                            .skillsEditWrapper
+                                .image
+                                    img(src=`/images/skills/${skillsId.skillsImg.filename}` alt='')
+                                .content
+                                    .icon
+                                        i.fas.fa-cloud-upload-alt
+                                    .text
+                                        | файл пока не выбран
+                                #cancel-btn
+                                    i.fas.fa-times
+                            div.btn.btn-secondary#skillChoose Выберите изображение
+                            input#skillFile-btn(type='file' accept=".png, .jpg, .jpeg, .svg" name="skillImg" hidden)
+                        
+                        button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') Изменить
+                else 
+                    form(method="POST" action="/admin/skillsAdd" enctype="multipart/form-data").border.p-4.shadow-lg.rounded.skillsAdd
+                        .mb-3
+                            label.form-label(for='skillImg') Изображение
+                            .skillsAddWrapper
+                                .image
+                                    img(src='' alt='')
+                                .content
+                                    .icon
+                                        i.fas.fa-cloud-upload-alt
+                                    .text
+                                        | файл пока не выбран
+                                #cancel-btn
+                                    i.fas.fa-times
+                            div.btn.btn-secondary#skillChoose Выберите изображение
+                            input#skillFile-btn(type='file' accept=".png, .jpg, .jpeg, .svg" name="skillImg" hidden)
+                        
+                        button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') Создать

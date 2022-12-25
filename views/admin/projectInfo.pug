@@ -1,0 +1,34 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-8.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item: a(href="/admin/projects") Портфолио
+            li.breadcrumb-item.active Подробная информация
+
+    .content: .container-fluid: .card#app
+        table.table
+            thead
+                tr
+                    th #
+                    th Название сайта
+                    th Ссылка на сайт
+                    th Изображение
+                    th Дата
+                    th Время
+            tbody.about-info
+                each projectId, i in projects
+                    tr
+                        th #{i+1}
+                        td #{projectId.projectTitle}
+                            
+                        td #{projectId.projectLink}
+                        td 
+                            img.about_info_img(src=`/images/projects/${projectId.projectImg.filename}`)
+                        td 
+                            | #{projectId.dateCreated.getDate() < 10 ? "0" + projectId.dateCreated.getDate() : projectId.dateCreated.getDate()}.
+                            | #{projectId.dateCreated.getMonth() < 10 ? "0" + projectId.dateCreated.getMonth() + 1 : projectId.dateCreated.getMonth() + 1}.
+                            | #{projectId.dateCreated.getFullYear()}
+                        td  
+                            | #{projectId.dateCreated.getHours() < 10 ? "0" + projectId.dateCreated.getHours() : projectId.dateCreated.getHours()}:
+                            | #{projectId.dateCreated.getMinutes() < 10 ? "0" + projectId.dateCreated.getMinutes() : projectId.dateCreated.getMinutes()}

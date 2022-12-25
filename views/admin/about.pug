@@ -1,0 +1,45 @@
+extends layout
+block content
+  .content-header: .container-fluid: .row.mb-2
+    .col-sm-4.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+      li.breadcrumb-item: a(href="/admin") Администратор
+      li.breadcrumb-item.active Обо мне
+
+  .content: .container-fluid: .card#app
+    if (abouts.length === 0) 
+      p.ml-2 Нет информации о себе
+      .container-fluid
+        a(href="/admin/newAddAbout" class="btn btn-primary mb-2 ml-2") Создать новый
+    else 
+      table.table
+        thead
+          tr
+            th #
+            th Заголовок
+            th Информация о себе
+            th Изображение для экрана
+            th Удалить
+            th Редактировать
+            th Узнать больше
+              
+        tbody
+          each about, i in abouts
+            tr
+              th #{i+1}
+              if (about.aboutTitle.ru.length > 8) 
+                td #{about.aboutTitle.ru.slice(0, 8)}...
+              else 
+                td #{about.aboutTitle.ru}
+              if (about.aboutMe.ru.length > 8) 
+                td #{about.aboutMe.ru.slice(0, 8)}...
+              else 
+                td #{about.aboutMe.ru}
+              each aboutImages, i in about.aboutImg
+                td 
+                  img.about_img(src=`/images/about/${aboutImages.filename}`)
+              td
+                a(href=`/admin/delete/${about._id}`).btn.btn-danger Удалить
+              td
+                a(href=`/admin/edit/${about._id}`).btn.btn-primary Редактировать
+              td
+                a(href=`/admin/info/${about._id}`).btn.btn-info Узнать больше

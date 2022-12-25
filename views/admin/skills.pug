@@ -1,0 +1,32 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-4.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item.active Мои навыки
+    .content: .container-fluid: .card#app
+        if (skills.length === 0) 
+            p.ml-2 Нет информации о ваших навыках
+        else 
+            table.table
+                thead
+                    tr
+                        th #
+                        th Изображение
+                        th Удалить
+                        th Редактировать
+                        th Узнать больше
+                tbody
+                    each skill, i in skills
+                        tr
+                            th #{i+1}
+                            td 
+                                img.skills_img(src=`/images/skills/${skill.skillsImg.filename}` alt="")
+                            td
+                                a(href=`/admin/deleteSkill/${skill._id}`).btn.btn-danger Удалить
+                            td
+                                a(href=`/admin/editSkill/${skill._id}`).btn.btn-primary Редактировать
+                            td
+                                a(href=`/admin/skillsInfo/${skill._id}`).btn.btn-info Узнать больше
+        .col-lg-3
+            a(href="/admin/skillsAdd" class="btn btn-primary mb-2 ml-2") Создать новый

@@ -1,0 +1,12 @@
+extends layout 
+
+block content
+        .content-header: .container-fluid: .row.mb-2
+            .col-sm-6.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+                li.breadcrumb-item: a(href="/admin") Администратор
+                li.breadcrumb-item: a(href="/admin/technologys") Инструменты
+                li.breadcrumb-item.active Подробная информация
+
+        .container 
+            .row.justify-content-center
+                img.skills_img_info(src=`/images/technologys/${techId.technologyImg.filename}`)

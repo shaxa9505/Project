@@ -1,0 +1,29 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-8.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item: a(href="/admin/networks") Социальные сети
+            li.breadcrumb-item.active Подробная информация
+    .content: .container-fluid: .card#app
+        table.table
+            thead
+                tr
+                    th #
+                    th Значок социальной сети
+                    th Ссылка на социальную сеть
+                    th Дата
+                    th Время
+            tbody.about-info
+                each network, i in networks
+                    tr
+                        th #{i+1}
+                        td #{network.networkIcon}
+                        td #{network.networkLink}
+                        td 
+                            | #{network.dateCreated.getDate() < 10 ? "0" + network.dateCreated.getDate() : network.dateCreated.getDate()}.
+                            | #{network.dateCreated.getMonth() < 10 ? "0" + network.dateCreated.getMonth() + 1 : network.dateCreated.getMonth() + 1}.
+                            | #{network.dateCreated.getFullYear()}
+                        td  
+                            | #{network.dateCreated.getHours() < 10 ? "0" + network.dateCreated.getHours() : network.dateCreated.getHours()}:
+                            | #{network.dateCreated.getMinutes() < 10 ? "0" + network.dateCreated.getMinutes() : network.dateCreated.getMinutes()}

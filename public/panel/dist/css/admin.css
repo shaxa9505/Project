@@ -1,0 +1,461 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ============= admin_header =========== */
+
+.admin_header .block{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 12px;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: rgba(66, 132, 231, 0.76);
+    margin-bottom: 20px;
+    color: black;
+}
+
+.admin_header .block i{
+    font-size: 35px;
+    color: rgb(43, 226, 202)
+}
+.admin_header .block .text{
+    white-space: nowrap;
+    font-size: 18px;
+    font-weight: 500;
+}
+.admin_header .block .number{
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.table thead th {
+    border-bottom: 0px solid transparent;
+}
+.table td,
+.table th {
+    border-top: 0px solid transparent;
+    font-size: 14px;
+}
+.table tbody tr {
+    border-top: 1px solid #dee2e6;
+}
+
+.table td .about_img{
+    width: 100%;
+    height: 150px;
+}
+.table .about-info tr td .about_info_img{
+    width: 280px;
+}
+
+.table tbody .skills_img {
+    width: 128px;
+    height: 128px;
+}
+.skills_img_info {
+    width: 400px;
+}
+
+.formWrapper .inText {
+    height: 50px;
+}
+.formWrapper .aboutFonWrapper {
+    position: relative;
+    width: 70%;
+    height: 150px;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.formWrapper .aboutFonWrapper.active {
+    border: none;
+}
+.formWrapper .aboutFonWrapper .image {
+    position: absolute;
+    width: 315px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formWrapper .aboutFonWrapper .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formWrapper .aboutFonWrapper .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.formWrapper .aboutFonWrapper .content .icon {
+    font-size: 60px;
+    color: #9658fe;
+}
+.formWrapper .aboutFonWrapper .content .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5b5b7b;
+}
+.formWrapper .aboutFonWrapper #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    cursor: pointer;
+    display: none;
+}
+.formWrapper .aboutFonWrapper #cancel-btn i:hover {
+    color: #e74c3c;
+}
+.formWrapper #aboutEdit-btn {
+    margin-top: 10px;
+    width: 70%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+}   
+
+.wrapperForm .inText {
+    height: 50px;
+}
+.wrapperForm .wrapperAboutFon {
+    position: relative;
+    width: 70%;
+    height: 150px;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.wrapperForm .wrapperAboutFon.active {
+    border: none;
+}
+.wrapperForm .wrapperAboutFon .image {
+    position: absolute;
+    width: 315px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapperForm .wrapperAboutFon .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.wrapperForm .wrapperAboutFon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.wrapperForm .wrapperAboutFon .icon {
+    font-size: 60px;
+    color: #9658fe;
+}
+.wrapperForm .wrapperAboutFon .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5b5b7b;
+}
+.wrapperForm .wrapperAboutFon #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    display: none;
+    cursor: pointer;
+}
+.wrapperForm .wrapperAboutFon #cancel-btn i:hover {
+    color: #e74c3c;
+}
+.wrapperForm #aboutFon-btn {
+    margin-top: 10px;
+    width: 70%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+}
+
+
+.skillsAdd .skillsAddWrapper {
+    position: relative;
+    width: 70%;
+    height: 150px;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.skillsAdd .skillsAddWrapper.active {
+    border: none;
+}
+.skillsAdd .skillsAddWrapper .image {
+    position: absolute;
+    width: 315px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.skillsAdd .skillsAddWrapper .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.skillsAdd .skillsAddWrapper .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.skillsAdd .skillsAddWrapper .content .icon {
+    font-size: 60px;
+    color: #9658fe;
+}
+.skillsAdd .skillsAddWrapper .content .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5b5b7b;
+}
+.skillsAdd .skillsAddWrapper #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    cursor: pointer;
+    display: none;
+}
+.skillsAdd .skillsAddWrapper #cancel-btn i:hover {
+    color: #e74c3c;
+}
+.skillsAdd #skillChoose {
+    margin-top: 30px;
+    width: 70%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+
+}   
+
+.skillsEdit .skillsEditWrapper {
+    position: relative;
+    width: 70%;
+    height: 150px;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.skillsEdit .skillsEditWrapper.active {
+    border: none;
+}
+.skillsEdit .skillsEditWrapper .image {
+    position: absolute;
+    width: 315px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.skillsEdit .skillsEditWrapper .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.skillsEdit .skillsEditWrapper .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.skillsEdit .skillsEditWrapper .content .icon {
+    font-size: 60px;
+    color: #9658fe;
+}
+.skillsEdit .skillsEditWrapper .content .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5b5b7b;
+}
+.skillsEdit .skillsEditWrapper #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    cursor: pointer;
+    display: none;
+}
+.skillsEdit .skillsEditWrapper #cancel-btn i:hover {
+    color: #e74c3c;
+}
+.skillsEdit #skillChoose {
+    margin-top: 30px;
+    width: 70%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+
+}   
+
+/* /////// */
+
+.technologyAdd .technologyAddWrapper {
+    position: relative;
+    width: 70%;
+    height: 150px;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.technologyAdd .technologyAddWrapper.active {
+    border: none;
+}
+.technologyAdd .technologyAddWrapper .image {
+    position: absolute;
+    width: 315px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.technologyAdd .technologyAddWrapper .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.technologyAdd .technologyAddWrapper .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.technologyAdd .technologyAddWrapper .content .icon {
+    font-size: 60px;
+    color: #9658fe;
+}
+.technologyAdd .technologyAddWrapper .content .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5b5b7b;
+}
+.technologyAdd .technologyAddWrapper #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    cursor: pointer;
+    display: none;
+}
+.technologyAdd .technologyAddWrapper #cancel-btn i:hover {
+    color: #e74c3c;
+}
+.technologyAdd #technologyAddChoose {
+    margin-top: 30px;
+    width: 70%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+/* /////// */
+
+.technologyEdit .technologyEditWrapper {
+    position: relative;
+    width: 70%;
+    height: 150px;
+    border-radius: 10px;
+    background: #fff;
+    border: 2px dashed #c2cdda;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.technologyEdit .technologyEditWrapper.active {
+    border: none;
+}
+.technologyEdit .technologyEditWrapper .image {
+    position: absolute;
+    width: 315px;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.technologyEdit .technologyEditWrapper .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.technologyEdit .technologyEditWrapper .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.technologyEdit .technologyEditWrapper .content .icon {
+    font-size: 60px;
+    color: #9658fe;
+}
+.technologyEdit .technologyEditWrapper .content .text {
+    font-size: 20px;
+    font-weight: 500;
+    color: #5b5b7b;
+}
+.technologyEdit .technologyEditWrapper #cancel-btn i {
+    position: absolute;
+    font-size: 20px;
+    right: 15px;
+    top: 15px;
+    color: #9658fe;
+    cursor: pointer;
+    display: none;
+}
+.technologyEdit .technologyEditWrapper #cancel-btn i:hover {
+    color: #e74c3c;
+}
+.technologyEdit #technologyEditChoose {
+    margin-top: 30px;
+    width: 70%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-align: center;
+
+}  

@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  section
+    .container
+      if (abouts.length === 0)
+        null
+      else 
+        each about, i in abouts
+          .row.justify-content-between
+            .col-lg-5.ms-lg-4
+              h2.section_title #{about.aboutTitle[lang]}
+              p.section_text #{about.aboutMe[lang]}
+            .col-lg-6   
+              each aboutImages, i in about.aboutImg
+                img.section_about_img(src=`/images/about/${aboutImages.filename}` alt="png")
+      .row 
+        .col-lg-12
+            h2.section_text_skills= l.skills
+        if (skills.length === 0)
+          null
+        else 
+          each skill, i in skills
+            .col-md-2.col-lg-2
+              .tech-icons.mb-4
+                  img.img(src=`/images/skills/${skill.skillsImg.filename}` alt="png")
+        .col-lg-12
+          h2.section_text_technology= l.instrument
+        if (techs.length === 0)
+          null
+        else 
+          each tech, i in techs
+            .col-md-2.col-lg-2
+              .tech-icons.mb-4
+                  img.img(src=`/images/technologys/${tech.technologyImg.filename}` alt="png")
+
+

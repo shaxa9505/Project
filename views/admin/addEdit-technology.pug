@@ -1,0 +1,47 @@
+extends layout 
+
+block content
+    .content-header: .container-fluid: .row.mb-2
+            .col-sm-6.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+                li.breadcrumb-item: a(href="/admin") Администратор
+                li.breadcrumb-item: a(href="/admin/technologys") Инструменты
+                li.breadcrumb-item.active #{technology}
+    .container
+        .row.justify-content-center
+            .col-lg-5
+                if editTech
+                    form(method="POST" action=`/admin/editTechnology/${techId._id}` enctype="multipart/form-data").border.p-4.shadow-lg.rounded.technologyEdit
+                        .mb-3
+                            label.form-label(for='technologyImg') Изображение
+                            .technologyEditWrapper
+                                .image
+                                    img(src=`/images/technologys/${techId.technologyImg.filename}` alt='')
+                                .content
+                                    .icon
+                                        i.fas.fa-cloud-upload-alt
+                                    .text
+                                        | файл пока не выбран
+                                #cancel-btn
+                                    i.fas.fa-times
+                            div.btn.btn-secondary#technologyEditChoose Выберите изображение
+                            input#technologyEditFile(type='file' accept=".png, .jpg, .jpeg, .svg" name="technologyImg" hidden)
+                        
+                        button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') #{technology}
+                else 
+                    form(method="POST" action="/admin/addTechnology" enctype="multipart/form-data").border.p-4.shadow-lg.rounded.technologyAdd
+                        .mb-3
+                            label.form-label(for='technologyImg') Изображение
+                            .technologyAddWrapper
+                                .image
+                                    img(src=`` alt='')
+                                .content
+                                    .icon
+                                        i.fas.fa-cloud-upload-alt
+                                    .text
+                                        | файл пока не выбран
+                                #cancel-btn
+                                    i.fas.fa-times
+                            div.btn.btn-secondary#technologyAddChoose Выберите изображение
+                            input#technologyAddFile(type='file' accept=".png, .jpg, .jpeg, .svg" name="technologyImg" hidden)
+                        
+                        button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') #{technology}

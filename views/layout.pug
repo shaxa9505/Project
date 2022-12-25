@@ -1,0 +1,18 @@
+doctype html
+html
+  include layouts/head
+  body
+    != messages('message', locals)
+    if errors
+      each error, i in errors
+        div(class="alert alert-danger") #{error.msg}
+
+    //- include layouts/loader
+    if !error 
+      include layouts/navbar
+    block content
+
+    if !error
+      include layouts/footer
+
+  

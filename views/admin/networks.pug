@@ -1,0 +1,41 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-4.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item.active Социальные сети
+    .content: .container-fluid: .card#app
+        if networks.length === 0
+            p.ml-2 Нет информации о ваших социальных сетях
+        else
+            table.table
+                    thead
+                        tr
+                            th #
+                            th Значок социальной сети
+                            th Ссылка на социальную сеть
+                            th Удалить
+                            th Редактировать
+                            th Узнать больше
+                    tbody
+                        each network, i in networks
+                            tr
+                                th #{i+1}
+                                if (network.networkIcon.length > 8) 
+                                    td #{network.networkIcon.slice(0, 8)}...
+                                else
+                                    td #{network.networkIcon}
+                                if (network.networkLink.length > 8)
+                                    td #{network.networkLink.slice(0, 8)}...
+                                else
+                                    td #{network.networkLink}
+                                td
+                                    a(href=`/admin/deleteNetwork/${network._id}`).btn.btn-danger Удалить
+                                td
+                                    a(href=`/admin/editNetwork/${network._id}`).btn.btn-primary Редактировать
+                                td
+                                    a(href=`/admin/networkInfo/${network._id}`).btn.btn-info Узнать больше
+        .col-lg-3
+            a(href="/admin/networkAdd" class="btn btn-primary mb-2 ml-2") Создать новый
+        
+    

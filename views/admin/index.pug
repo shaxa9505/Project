@@ -1,0 +1,40 @@
+extends layout
+
+block content
+  .content-header: .container-fluid: .row.mb-2
+    .col-sm-6: a(href="/admin").m-0 Панель администратора
+    .col-sm-6: ol.breadcrumb.float-sm-right: li.breadcrumb-item: a(href="/") Перейти на сайт  
+  .admin_header
+    .container 
+      .row
+        .col-lg-3
+          a(href="/admin/about").block
+              i.bi.bi-person-fill
+              span.text Обо мне 
+              span.number #{aboutsCount}    
+        .col-lg-3
+          a(href="/admin/skills").block
+              i.bi.bi-graph-up-arrow
+              span.text Мои навыки
+              span.number #{skillsCount}
+        .col-lg-3
+          a(href="/admin/technologys").block
+            i.bi.bi-file-bar-graph
+            span.text Инструменты
+            span.number #{techsCount}
+        .col-lg-3
+          a(href="/admin/projects").block
+            i.bi.bi-tv
+            span.text Портфолио
+            span.number #{projectsCount}
+        .col-lg-3
+          a(href="/admin/networks").block
+            i.bi.bi-hdd-network
+            span.text Социальные сети
+            span.number #{networksCount}
+        .col-lg-3
+          a(href="/admin/resume").block
+            i.bi.bi-filetype-pdf
+            span.text Резюме
+            span.number 50,120
+              

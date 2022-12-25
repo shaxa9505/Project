@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    .header_about
+        .container
+            .row.justify-content-between
+                .col-lg-6
+                    .header_about.home.d-flex
+                        h2 #{l.hello} 
+                        span.wave 👋
+                    p.name #{l.name}
+                        span.dev #{l.dev}
+                    p.work #{l.work}
+                .col-lg-6
+                    img(src="/img/giphy-2279301799" alt="png")

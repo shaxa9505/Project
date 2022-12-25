@@ -1,0 +1,28 @@
+extends layout
+block content
+    .content-header: .container-fluid: .row.mb-2
+        .col-sm-6.d-flex.justify-content-start: ol.breadcrumb.float-sm-right
+            li.breadcrumb-item: a(href="/admin") Администратор
+            li.breadcrumb-item: a(href="/admin/networks") Социальные сети
+            li.breadcrumb-item.active #{networkTitle}
+    .container
+            .row.justify-content-center
+                .col-lg-6
+                    if networkEdit
+                        form(method="POST" action=`/admin/editNetwork/${networks._id}`).border.p-4.shadow-lg.rounded.formWrapper
+                            .mb-3
+                                label.form-label.fs-4(for='networkIcon') Значок социальной сети
+                                input#name.form-control.mb-2(type='text' name='networkIcon' value=networks.networkIcon  placeholder='Иконка вашей социальной сети')
+                            .mb-3
+                                label.form-label.fs-4(for='networkLink') Ссылка на социальную сеть
+                                input#name.form-control.mb-2.inText(type='text' name='networkLink' value=networks.networkLink placeholder='Ссылка на вашу социальную сеть')
+                            button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') Изменить
+                    else 
+                        form(method="POST" action="/admin/networkAdd").border.p-4.shadow-lg.rounded.formWrapper
+                            .mb-3
+                                label.form-label.fs-4(for='networkIcon') Значок социальной сети
+                                input#name.form-control.mb-2(type='text' name='networkIcon' value=networkIcon ? networkIcon : ""  placeholder='Иконка вашей социальной сети')
+                            .mb-3
+                                label.form-label.fs-4(for='networkLink') Ссылка на социальную сеть
+                                input#name.form-control.mb-2.inText(type='text' name='networkLink' value=networkLink ? networkLink : "" placeholder='Ссылка на вашу социальную сеть')
+                            button.btn.btn-dark.shadow-lg.w-100.text-light.mt-5(type='submit') Создать
